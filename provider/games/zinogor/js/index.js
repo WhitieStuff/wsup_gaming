@@ -2,10 +2,10 @@ let url = window.location.pathname
 let search = window.location.search
 let query = new URLSearchParams(search)
 
-let mode = query.get('mode').toLowerCase() || 'real'
-let currency = query.get('currency').toLowerCase() || 'eur'
-let client = query.get('client').toLowerCase()
-let player = query.get('player').toLowerCase()
+let mode = query.has('mode') ? query.get('mode').toLowerCase() : 'real'
+let currency = query.has('currency') ? query.get('currency').toLowerCase() : 'eur'
+let client = query.has('client') ? query.get('client').toLowerCase() : null
+let player = query.has('player') ? query.get('player').toLowerCase() : null
 
 /* ====== WebSocket Begins ====== */
 let wsURL = 'wss://wsup.whitie.ru:9000'

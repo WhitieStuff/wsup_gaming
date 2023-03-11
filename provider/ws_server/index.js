@@ -25,6 +25,9 @@ wss.on('connection', (ws) => {
 })
 
 class RocketLaunch {
+  /**
+   * Launch states sent to clients.
+   */
   launch_states = {
     close: 100,
     mid: 200,
@@ -37,6 +40,12 @@ class RocketLaunch {
   }
   launch_countdown = 10
   launch_interval = null
+  /**
+   * State of current flight.
+   * 0 - flying;
+   * 1 - blown.
+   */
+  flight_state = 0
   flight_duration = null
   flight_interval = null
 
@@ -101,11 +110,19 @@ class RocketLaunch {
   }
   start_flight() {
     clearInterval(this.launch_interval)
-    flight_duration = this.generate_duration()
+    this.flight_duration = this.generate_duration()
+
+    this.flight_interval = setInterval(this.blow_rocket, this.flight_duration)
+
+  }
+  blow_rocket() {
+    clearInterval(this.flight_interval)
+    this.flight_state = 1
   }
   generate_duration() {
     let random = this.get_random(4) + this.get_random(4, 5)+ this.get_random(4, 5)+ this.get_random(4, 5)+ this.get_random(8, 9)
     random = random < 0.1 ? 0.1 : random
+    random *= 1000
     return random
   }
   get_random(max = 1, chance = 0) {
