@@ -6,6 +6,6 @@
     "ws": "^8.12.1"
   },
   "scripts": {
-    "http-server": "http-server ../games/zinogor/"
+    "http-server": "http-server ../frontend"
   }
 }
