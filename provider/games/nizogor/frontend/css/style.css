@@ -18,6 +18,17 @@ html {
   border: 1px dashed #0094ff;
 }
 
+/* Preloading images */
+.body::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url('../static/cloud_01.png') url('../static/cloud_02.png') url('../static/cloud_03.png') url('../static/cloud_04.png') url('../static/cloud_05.png')
+    url('../static/cloud_06.png') url('../static/holders_01.png') url('../static/platform.png') url('../static/rocket_01.png');
+}
+
 .service {
   border-right: 2px solid #0094ff;
   height: 100%;
@@ -43,21 +54,49 @@ html {
 }
 
 .spaceport_close {
-  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
-  background-size: 960px 412px, 120px 720px;
-  background-position: center bottom, center bottom 163px;
+  background-image: url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 360px 720px, 960px 412px, 120px 720px;
+  background-position: center bottom 163px, center bottom, center bottom 163px;
 }
 
 .spaceport_mid {
-  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
-  background-size: 560px 240px, 70px 420px;
-  background-position: center bottom, center bottom 95px;
+  background-image: url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 210px 420px, 560px 240px, 70px 420px;
+  background-position: center bottom, center bottom -95px, center bottom;
 }
 
 .spaceport_far {
-  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
-  background-size: 400px 172px, 50px 300px;
-  background-position: center bottom, center bottom 68px;
+  background-image: url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 150px 300px, 400px 172px, 50px 300px;
+  background-position: center bottom 68px, center bottom, center bottom 68px;
+}
+
+.spaceport_launch {
+  background-image: url('../static/cloud_01.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 150px 150px, 150px 300px, 400px 172px, 50px 300px;
+  background-position: center bottom 58px, center bottom 68px, center bottom, center bottom 68px;
+  animation: launch_clouds 4s ease-in forwards;
+}
+
+@keyframes launch_clouds {
+  0% {
+    background-image: url('../static/cloud_01.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
+  20% {
+    background-image: url('../static/cloud_02.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
+  40% {
+    background-image: url('../static/cloud_03.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
+  60% {
+    background-image: url('../static/cloud_04.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
+  80% {
+    background-image: url('../static/cloud_05.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
+  100% {
+    background-image: url('../static/cloud_06.png'), url('../static/holders_01.png'), url('../static/platform.png'), url('../static/rocket_01.png');
+  }
 }
 
 .binoculars {

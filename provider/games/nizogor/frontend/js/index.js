@@ -77,6 +77,7 @@ class Spaceport {
     this.spaceport.classList.remove('spaceport_mid')
     this.spaceport.classList.remove('spaceport_far')
     this.binoculars.classList.remove('hidden')
+    this.spaceport.classList.remove('spaceport_launch')
     this.binoculars.classList.add('binoculars_moving')
   }
 
@@ -95,7 +96,11 @@ class Spaceport {
     this.binoculars.classList.add('hidden')
   }
 
-  make_launch() {}
+  make_launch() {
+    this.spaceport.classList.remove('spaceport_mid')
+    this.spaceport.classList.remove('spaceport_far')
+    this.spaceport.classList.add('spaceport_launch')
+  }
 
   make_takeoff() {}
 
