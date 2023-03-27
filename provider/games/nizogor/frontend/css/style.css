@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.body {
+  width: 1200px;
+  height: 800px;
+  background: #000;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  position: relative;
+  border: 1px dashed #0094ff;
+}
+
+.service {
+  border-right: 2px solid #0094ff;
+  height: 100%;
+  width: 100%;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url('../static/sky.png');
+  background-size: cover;
+}
+
+.spaceport {
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.spaceport_close {
+  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 960px 412px, 120px 720px;
+  background-position: center bottom, center bottom 163px;
+}
+
+.spaceport_mid {
+  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 560px 240px, 70px 420px;
+  background-position: center bottom, center bottom 95px;
+}
+
+.spaceport_far {
+  background-image: url('../static/platform.png'), url('../static/rocket_01.png');
+  background-size: 400px 172px, 50px 300px;
+  background-position: center bottom, center bottom 68px;
+}
+
+.binoculars {
+  background-image: url('../static/binoculars.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.binoculars_moving {
+  animation: binoculars 2s;
+}
+
+@keyframes binoculars {
+  from {
+    background-position: center bottom;
+  }
+  to {
+    background-position: center top;
+  }
+}
+
+.black {
+  background-color: #000;
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.loading {
+  background-color: #000;
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading__message {
+  color: #0094ff;
+  font-size: 32px;
+}
+
+.hidden {
+  display: none;
+}
